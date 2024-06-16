@@ -1,4 +1,4 @@
-<h1>家計簿変種</h1>
+<h1>かけいぼ編集</h1>
 
 <%= form_with model: @book, local: true, method: "patch" do |f| %>
 
@@ -28,6 +28,6 @@
     </div>
 
     <%= f.submit "更新", class: "btn btn-secondary"%>
-    <%= link_to "戻る", books_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", root_path, class: "btn btn-secondary" %>
 
 <% end %>

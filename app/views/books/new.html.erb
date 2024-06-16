@@ -1,4 +1,4 @@
-<h1>家計簿新規登録</h1>
+<h1>かけいぼ新規作成</h1>
 
 <%= form_with model: @book, local: true do |f| %>
 
@@ -27,6 +27,6 @@
         <%= f.number_field :amount, class: "form-control" %>
     </div>
 
-    <%= link_to "戻る", books_path, class: "btn btn-secondary" %>
+    <%= link_to "戻る", root_path, class: "btn btn-secondary" %>
     <%= f.submit "登録", class: "btn btn-secondary"%>
 <% end %>
