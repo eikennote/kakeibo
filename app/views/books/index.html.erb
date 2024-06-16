@@ -15,6 +15,7 @@
         <td><%= book.amount %>万円</td>
         <td>
             <%= link_to "詳細", book_path(book), class: "btn btn-secondary" %>
+            <%= link_to "編集", edit_book_path(book), class: "btn btn-secondary" %>
         </td>
     </tr>
     <% end %>
