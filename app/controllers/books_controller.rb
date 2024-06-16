@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @books = Book.all
+    @user = current_user
   end
 
   def show
@@ -31,7 +32,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     book_params = params.require(:book).permit(:year, :month, :inout, :category, :amount)
     if @book.update(book_params)
-      redirect_to books_path(@book)
+      redirect_to root_path
     else
       render :edit
     end

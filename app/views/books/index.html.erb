@@ -1,4 +1,5 @@
-<h1>かけいぼアプリ</h1>
+<h1>家計簿アプリ</h1>
+<h4>アカウント名：<%= @user.name %>さん</h2>
 <table class="table table-striped">
     <tr>
         <th>年月</th>
@@ -9,7 +10,7 @@
     </tr>
     <% @books.each do |book| %>
     <tr>
-        <td><%= book.year %>年<% book.month %>月</td>
+        <td><%= book.year %>年<%= book.month %>月</td>
         <td><%= book.inout %></td>
         <td><%= book.category %></td>
         <td><%= book.amount %>万円</td>
@@ -22,3 +23,4 @@
     <% end %>
 </table>
 <%= link_to "新規作成", new_book_path, class: "btn btn-primary" %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>

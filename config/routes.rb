@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
-  }
+# devise_for :users, :controllers => {
+#    :registrations => 'users/registrations',
+#    :sessions => 'users/sessions'
+#  }
+
+devise_for :users, skip: [:sessions]
+ as :user do
+  get 'signin', to: 'devise/sessions#new', as: :new_user_session
+  post 'signin', to: 'devise/sessions#create', as: :user_session
+  match 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
+end
+
+  get "/users", to: "users#new"
+  post "/users", to: "users#create"
+  delete "/users/:id", to: "users#destroy"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
